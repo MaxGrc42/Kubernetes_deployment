@@ -11,7 +11,7 @@ export default function Disconnect() {
     };
 
     return (
-        <button onClick={handleDisconnect} className="px-4 py-2 bg-red-500 text-white rounded">
+        <button onClick={handleDisconnect} className="px-4 py-2 bg-red-500 text-white rounded m-4">
             Disconnect
         </button>
     );
