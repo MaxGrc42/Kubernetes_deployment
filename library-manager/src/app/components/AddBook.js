@@ -1,12 +1,14 @@
 "use client"
 import React, {useState} from "react";
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
+import {ReflectAdapter as searchParams} from "next/dist/server/web/spec-extension/adapters/reflect";
 
 export default function AddBook() {
+    const searchParams = useSearchParams();
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [date, setDate] = useState("");
-    const [id_user, setId_user] = useState("");
+    const id_user = searchParams.get("userId");
     const router = useRouter();
     const addBook = async (event) => {
         event.preventDefault();
@@ -20,7 +22,7 @@ export default function AddBook() {
         });
         if (response.ok) {
             console.log("Book added");
-            router.push("/library");
+            router.push("/library?userId="+id_user);
         } else {
             console.error("Error adding book");
         }
@@ -45,11 +47,6 @@ export default function AddBook() {
             onChange = {(event)=> setDate(event.target.value)}
             value={date}
             type="date"
-            className="px-4 py-2 border text-black rounded"
-        />
-        <input
-            onChange={(event) => setId_user(event.target.value)}
-            value={id_user}
             className="px-4 py-2 border text-black rounded"
         />
         <button

@@ -2,11 +2,11 @@
 import React from "react";
 import {useRouter} from "next/navigation";
 
-export default function GoToNewPage() {
+export default function GoToNewPage(user_id) {
     const router = useRouter();
 
     const handleURL = () => {
-        router.push("/libraryAddBook");
+        router.push("/libraryAddBook?userId="+ String(user_id.user_id));
     };
 
     return (
