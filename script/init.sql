@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Books (
     title VARCHAR(50) NOT NULL,
     author VARCHAR(50) NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_user) REFERENCES users(id)
+    FOREIGN KEY (id_user) REFERENCES Users(id)
 );
 
 -- Insère des données de test
