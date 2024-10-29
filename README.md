@@ -6,6 +6,7 @@
 - [Introduction](#introduction)
 - [Prérequis](#prérequis)
 - [Présentation de l'application](#présentation-de-lapplication)
+- [Mise en place des images Docker](#mise-en-place-des-images-docker)
 - [Déploiement sur un cluster Kubernetes](#déploiement-sur-un-cluster-kubernetes)
     - [Déploiement de la base de données MySQL](#déploiement-de-la-base-de-données-mysql)
     - [Déploiement de l'application web](#déploiement-de-lapplication-web)
@@ -35,6 +36,24 @@ Afin de pouvoir réaliser ce TP, vous devez avoir les outils suivants installés
 
 L'application web est une application simple qui permet de gérer une bibliothèque de livres.
 L'application web est développée en utilisant le framework NextJS.
+
+## Mise en place des images Docker
+Pour construire les images des conteneurs, il faut se déplacer dans le répertoire adéquat (`database` ou `library-manager`) et exécuter la commande suivante:
+
+```bash
+docker build -t <nom-image> .
+```
+On peut ansuite pousser l'image sur un registre Docker:
+
+```bash
+docker push <nom-image>
+```
+_Il peut y avoir des problèmes de tag lors du push, il faut alors retagger l'image avec la commande suivante:_
+
+```bash
+docker tag <nom-image> <registry>/<nom-image>:<tag>
+```
+
 
 ## Déploiement sur un cluster Kubernetes
 
