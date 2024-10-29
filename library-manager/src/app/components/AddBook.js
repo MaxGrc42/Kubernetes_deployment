@@ -1,7 +1,6 @@
 "use client"
 import React, {useState} from "react";
 import {useRouter, useSearchParams} from "next/navigation";
-import {ReflectAdapter as searchParams} from "next/dist/server/web/spec-extension/adapters/reflect";
 
 export default function AddBook() {
     const searchParams = useSearchParams();
