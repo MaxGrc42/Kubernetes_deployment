@@ -138,3 +138,21 @@ Il est possible d'exécuter une commande dans un pod:
 ```bash
 kubectl exec -it <nom-du-pod> -- /bin/bash
 ```
+
+## Nettoyage du projet
+Supprimer les ressources créées:
+``` bash
+kubectl delete -f frontend-service.yaml
+kubectl delete -f frontend-deployment.yaml
+kubectl delete -f mysql-service.yaml
+kubectl delete -f mysql-deployment.yaml
+kubectl delete -f mysql-pvc.yaml
+```
+Arrêter Minikube:
+``` bash
+minikube stop
+```
+Supprimer Minikube:
+``` bash
+minikube delete
+```
