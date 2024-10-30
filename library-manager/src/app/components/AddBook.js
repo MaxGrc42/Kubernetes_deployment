@@ -27,7 +27,7 @@ export default function AddBook() {
         }
     }
     const cancel = () => {
-        router.push("/library");
+        router.push("/library?userId="+id_user);
     }
     return (<form className="flex flex-col space-y-4">
         <input

@@ -74,7 +74,7 @@ minikube dashboard
 Afin de sauvegarder les données après un redémarrage de la base de données, il faut créer un volume persistant:
 
 ```bash
-kubectl apply -f mysql-pv.yaml
+kubectl apply -f mysql-pvc.yaml
 ```
 
 Ensuite, on peut déployer la base de données MySQL:
@@ -94,13 +94,13 @@ kubectl apply -f mysql-service.yaml
 On lance le déploiement de l'application web:
 
 ```bash
-kubectl apply -f app-deployment.yaml
+kubectl apply -f frontend-deployment.yaml
 ```
 
 On met en place un service qui permettra de faire communiquer l'application web avec d'autres applications
 
 ```bash
-kubectl apply -f app-service.yaml
+kubectl apply -f frontend-service.yaml
 ```
 
 ### Accès à l'application web
